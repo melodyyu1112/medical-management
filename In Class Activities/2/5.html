@@ -15,15 +15,43 @@
       </div>
       <div>Start writing your content here!</div>
       <div id="reviews-section" class="columns">
-        <div class="column">Review 1</div>
+        <!-- <div class="column">Review 1</div>
         <div class="column">Review 2</div>
-        <div class="column">Review 3</div>
+        <div class="column">Review 3</div> -->
       </div>
     </div>
   </body>
 
   <script>
     const reviewsSectionElement = document.getElementById("reviews-section");
-    debugger;
+    // debugger;
+
+    // add a class named column
+    // <div class = "column"> </div>
+    const review1 = document.createElement("div");
+    review1.classList.add("column");
+    const imageElement = document.createElement("img");
+    // <img src = "..."/>
+    imageElement.src = "https://dummyimage.com/200x200/e398e3/fff";
+    review1.appendChild(imageElement);
+    const reviewText = document.createElement("div");
+    reviewText.classList.add("content");
+    reviewText.textContent = "@hello this is new york";
+    const reviewTimePosted = document.createElement("div");
+    reviewTimePosted.classList.add("content");
+    reviewTimePosted.textContent = "3 weeks ago";
+
+    const review2 = document.createElement("div");
+    review2.classList.add("column");
+    review2.textContent = "Hello world!";
+
+    const review3 = document.createElement("div");
+    review3.classList.add("column");
+    review3.textContent = "Hello world!!";
+    reviewsSectionElement.appendChild(review1);
+    review1.appendChild(reviewText);
+    review1.appendChild(reviewTimePosted);
+    reviewsSectionElement.appendChild(review2);
+    reviewsSectionElement.appendChild(review3);
   </script>
 </html>
