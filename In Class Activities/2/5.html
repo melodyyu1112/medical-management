@@ -19,6 +19,11 @@
         <div class="column">Review 2</div>
         <div class="column">Review 3</div> -->
       </div>
+      <div id="post-section" class="columns">
+        <!-- <div class="column">Review 1</div>
+        <div class="column">Review 2</div>
+        <div class="column">Review 3</div> -->
+      </div>
     </div>
   </body>
 
@@ -28,30 +33,90 @@
 
     // add a class named column
     // <div class = "column"> </div>
-    const review1 = document.createElement("div");
-    review1.classList.add("column");
-    const imageElement = document.createElement("img");
-    // <img src = "..."/>
-    imageElement.src = "https://dummyimage.com/200x200/e398e3/fff";
-    review1.appendChild(imageElement);
-    const reviewText = document.createElement("div");
-    reviewText.classList.add("content");
-    reviewText.textContent = "@hello this is new york";
-    const reviewTimePosted = document.createElement("div");
-    reviewTimePosted.classList.add("content");
-    reviewTimePosted.textContent = "3 weeks ago";
+    // const review1 = document.createElement("div");
+    // review1.classList.add("column");
+    // const imageElement = document.createElement("img");
+    // // <img src = "..."/>
+    // imageElement.src = "https://dummyimage.com/200x200/e398e3/fff";
+    // review1.appendChild(imageElement);
+    // const reviewText = document.createElement("div");
+    // reviewText.classList.add("content");
+    // reviewText.textContent = "@hello this is new york";
+    // const reviewTimePosted = document.createElement("div");
+    // reviewTimePosted.classList.add("content");
+    // reviewTimePosted.textContent = "3 weeks ago";
 
-    const review2 = document.createElement("div");
-    review2.classList.add("column");
-    review2.textContent = "Hello world!";
+    // const review2 = document.createElement("div");
+    // review2.classList.add("column");
+    // review2.textContent = "Hello world!";
 
-    const review3 = document.createElement("div");
-    review3.classList.add("column");
-    review3.textContent = "Hello world!!";
-    reviewsSectionElement.appendChild(review1);
-    review1.appendChild(reviewText);
-    review1.appendChild(reviewTimePosted);
-    reviewsSectionElement.appendChild(review2);
-    reviewsSectionElement.appendChild(review3);
+    // const review3 = document.createElement("div");
+    // review3.classList.add("column");
+    // review3.textContent = "Hello world!!";
+    // reviewsSectionElement.appendChild(review1);
+    // review1.appendChild(reviewText);
+    // review1.appendChild(reviewTimePosted);
+    // reviewsSectionElement.appendChild(review2);
+    // reviewsSectionElement.appendChild(review3);
+
+    const postsData = [
+      {
+        postedBy: "WhimsyTales",
+        message:
+          "Just had the most amazing brunch at this hidden gem in town! Highly recommend trying their avocado toast. #FoodieLife",
+        imageUrl: "http://dummyimage.com/190x100.png/ff4444/ffffff",
+        postedOn: "1/14/2023",
+      },
+      {
+        postedBy: "JazzedWordsmith",
+        message:
+          "Feeling so inspired after attending the conference today. So many great speakers and thought-provoking ideas! #ConferenceInspo",
+        imageUrl: "http://dummyimage.com/233x100.png/5fa2dd/ffffff",
+        postedOn: "8/3/2022",
+      },
+      {
+        postedBy: "PixelatedDreamer",
+        message:
+          "Just finished my morning run and already feel like I conquered the world! #FitnessGoals #RunningCommunity",
+        imageUrl: "http://dummyimage.com/189x100.png/5fa2dd/ffffff",
+        postedOn: "11/16/2022",
+      },
+      {
+        postedBy: "SerenitySeeker",
+        message:
+          "Started reading this book yesterday and I can't put it down! The suspense is killing me. #Bookworm",
+        imageUrl: "http://dummyimage.com/110x100.png/5fa2dd/ffffff",
+        postedOn: "8/26/2022",
+      },
+      {
+        postedBy: "ChaosControl101",
+        message:
+          "Finally booking my dream vacation! Can't wait to soak up the sun on the beautiful beaches of Bali. #Wanderlust",
+        imageUrl: "http://dummyimage.com/106x100.png/5fa2dd/ffffff",
+        postedOn: "4/18/2022",
+      },
+    ];
+
+    // Add your code below this line
+    // -----------------------------
+    const postSectionElement = document.getElementById("post-section");
+    postsData.forEach((post) => {
+      const box = document.createElement("div");
+      box.classList.add("column");
+      postSectionElement.appendChild(box);
+
+      const imageElement = document.createElement("img");
+      imageElement.src = post.imageUrl;
+      box.appendChild(imageElement);
+
+      const contentMessage = document.createElement("p");
+      contentMessage.textContent = post.message;
+      contentMessage.classList.add("content");
+      box.appendChild(contentMessage);
+
+      const postedBy = document.createElement("p");
+      postedBy.textContent = post.postedBy;
+      box.appendChild(postedBy);
+    });
   </script>
 </html>
