@@ -117,6 +117,19 @@
       const postedBy = document.createElement("p");
       postedBy.textContent = post.postedBy;
       box.appendChild(postedBy);
+
+      // innerHTML and template literal
+      reviewsSectionElement.innerHTML = "<div>Hello world</div>";
+      reviewsSectionElement.innerHTML = `<div>Hello world${3}</div>`;
+
+      const postedAuthor = "Mel";
+      const message = "hello";
+      const imageURL = "http://dummyimage.com/106x100.png/5fa2dd/ffffff";
+      reviewsSectionElement.innerHTML = `<div class="column">
+        <img src=${imageURL} />
+        <p>Posted by: ${postedAuthor}</p>
+        <p>${message}</p>
+      `;
     });
   </script>
 </html>
