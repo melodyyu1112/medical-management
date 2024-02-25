@@ -8,7 +8,7 @@
   <body>
     <div class="hero">
       <div class="hero-body">
-        <div class="columns">
+        <div class="columns has-text-centered">
           <div class="title">Your best value prop</div>
           <div class="subtitle">Lorem Ipsum</div>
         </div>
@@ -24,6 +24,27 @@
         <div class="column">Review 2</div>
         <div class="column">Review 3</div> -->
       </div>
+
+      <!-- carousel section -->
+      <div class="columns has-text-centered">
+        <div class="title">Carousel Widget</div>
+      </div>
+      <div id="carousel-section" class="columns is-centered">
+        <div class="column is-2 is-hidden">
+          <img src="http://dummyimage.com/106x100.png/5fa2dd/ffffff" />
+          <p>Product 1</p>
+        </div>
+        <div class="column is-2 is-hidden">
+          <img src="http://dummyimage.com/106x100.png/5fa2dd/ffffff" />
+          <p>Product 2</p>
+        </div>
+        <div class="column is-2 is-hidden">
+          <img src="http://dummyimage.com/106x100.png/5fa2dd/ffffff" />
+          <p>Product 3</p>
+        </div>
+      </div>
+      <button id="previous-button" class="button is-secondary">Previous</button>
+      <button id="next-button" class="button is-secondary">Next</button>
     </div>
   </body>
 
@@ -97,8 +118,6 @@
       },
     ];
 
-    // Add your code below this line
-    // -----------------------------
     const postSectionElement = document.getElementById("post-section");
     postsData.forEach((post) => {
       const box = document.createElement("div");
@@ -130,6 +149,34 @@
         <p>Posted by: ${postedAuthor}</p>
         <p>${message}</p>
       `;
+    });
+
+    /* carousel section */
+    const carouselSectionElement = document.getElementById("carousel-section");
+    const previousButton = document.getElementById("previous-button");
+    const nextButton = document.getElementById("next-button");
+    let currentlyDisplayedProductNumber = 0;
+    const productElements = Array.from(carouselSectionElement.children);
+
+    // productElements.forEach((productElement) => {
+    //   productElement.classList.add("is-hidden");
+    //   console.log(productElement);
+    // });
+
+    productElements[currentlyDisplayedProductNumber].classList.toggle(
+      "is-hidden"
+    );
+
+    nextButton.addEventListener("click", () => {
+      productElements[currentlyDisplayedProductNumber].classList.toggle(
+        "is-hidden"
+      );
+      currentlyDisplayedProductNumber++;
+      currentlyDisplayedProductNumber =
+        currentlyDisplayedProductNumber % productElements.length;
+      productElements[currentlyDisplayedProductNumber].classList.toggle(
+        "is-hidden"
+      );
     });
   </script>
 </html>
